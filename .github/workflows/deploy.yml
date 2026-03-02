@@ -1,0 +1,33 @@
+name: Deploy to Orange Pi
+
+on:
+  push:
+    branches: [ main ]  # Запускать при каждом пуше в ветку main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 1. Подключаем виртуальную машину GitHub к твоему Tailscale
+      - name: Connect to Tailscale
+        uses: tailscale/github-action@v2
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+
+      # 2. Идем по SSH на Orange Pi и выполняем команды
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST_IP }}
+          username: ${{ secrets.HOST_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            echo "Привет с Orange Pi! Я начинаю обновление..."
+            # Тут мы пишем команды, которые обычно вводим руками:
+            # cd /home/orangepi/my-project
+            # git pull origin main
+            # docker-compose up -d --build
+            uptime
