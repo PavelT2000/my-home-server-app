@@ -18,3 +18,7 @@ async def author(request: Request):
 @app.get("/work")
 async def work(request: Request):
     return templates.TemplateResponse("work.html", {"request": request})
+
+@app.get("/commands")
+async def commands(request: Request):
+    return templates.TemplateResponse("commands.html", {"request": request})

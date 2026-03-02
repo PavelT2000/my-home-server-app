@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Полезные команды — Мой сервер</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 40px auto; line-height: 1.6; color: #333; padding: 0 20px; }
+        nav { background: #333; padding: 15px; border-radius: 8px; margin-bottom: 30px; }
+        nav a { color: white; margin-right: 20px; text-decoration: none; font-weight: 500; }
+        nav a:hover { color: #00d4ff; }
+        
+        .command-card { background: #f9f9f9; border-left: 5px solid #0078d4; padding: 20px; margin-bottom: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        h2 { margin-top: 0; color: #0078d4; font-size: 1.2rem; }
+        code { background: #2d2d2d; color: #f8f8f2; padding: 10px; display: block; border-radius: 5px; margin: 10px 0; overflow-x: auto; font-family: 'Consolas', monospace; }
+        .description { font-size: 0.95rem; color: #666; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Главная</a>
+        <a href="/author">Об авторе</a>
+        <a href="/work">О работе</a>
+        <a href="/commands">Команды</a>
+    </nav>
+
+    <h1>Шпаргалка по командам</h1>
+
+    <div class="command-card">
+        <h2>Просмотр логов сервиса  </h2>
+        <p class="description">Позволяет в реальном времени видеть, что происходит с твоим сайтом и почему он может не запускаться.</p>
+        <code>sudo journalctl -u service -f</code>
+    </div>
+
+    <div class="command-card">
+        <h2>Перезапуск сервиса</h2>
+        <p class="description">Выполнить после ручного редактирования файлов на сервере.</p>
+        <code>sudo systemctl restart service</code>
+    </div>
+
+    <div class="command-card">
+        <h2>Посмотреть ВСЕ активные сервисы</h2>
+        <p class="description">Эта команда выведет список всех сервисов, которые работают в данный момент</p>
+        <code>systemctl list-units --type=service --state=running</code>
+    </div>
+    <div class="command-card">
+        <h2>Выключить навсегда (убрать из автозагрузки)</h2>
+        <p class="description">Эта команда сделает так, чтобы сервис не запускался сам при включении приставки</p>
+        <code>sudo systemctl disable service</code>
+    </div>
+
+
+</body>
+</html>
