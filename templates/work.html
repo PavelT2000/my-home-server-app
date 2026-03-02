@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>О работе сайта</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 50px auto; padding: 0 20px; }
+        nav { background: #f4f4f4; padding: 10px; margin-bottom: 20px; }
+        nav a { margin-right: 15px; text-decoration: none; color: #007bff; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Главная</a>
+        <a href="/author">Об авторе</a>
+        <a href="/work">О работе сайта</a>
+    </nav>
+    <h1>Как работает этот сайт?</h1>
+    <ul>
+        <li><strong>Железо:</strong> Orange Pi Zero 3</li>
+        <li><strong>ОС:</strong> Ubuntu / Debian</li>
+        <li><strong>Backend:</strong> Python + FastAPI</li>
+        <li><strong>Доступ:</strong> Cloudflare Tunnel + Tailscale</li>
+        <li><strong>Автоматизация:</strong> GitHub Actions (CI/CD)</li>
+    </ul>
+    <h1>Вот так выглядит сервер)</h1>
+    <img src="{{ url_for('static', path='/images/photo_2026-03-02_13-45-12.jpg') }}" style="width: 200px; border-radius: 10px;">
+</body>
+</html>
